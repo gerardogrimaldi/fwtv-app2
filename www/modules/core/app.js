@@ -85,17 +85,17 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'fw-card-list
       'menuContent': {
         templateUrl: 'modules/core/views/home.view.html',
         controller: 'HomeCtrl as vm',
-       /* resolve: {
+        resolve: {
           Home: ['HomeSrv',
             function(HomeSrv) {
               return HomeSrv.get();
             }
           ]
-        }*/
+        }
       }
     }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/home');
+  $urlRouterProvider.otherwise('/app/core');
 });
