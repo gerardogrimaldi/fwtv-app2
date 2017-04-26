@@ -1,0 +1,25 @@
+<div class="fw-card-list-photos-user-container">
+  <div>
+    <div class="content-list row" ng-repeat="items in list track by $index">
+      <div class="col" ng-repeat="item in items track by $index">
+        <div ng-if="::zoom" fw-dialog-photo="::item" class="list card fw-card" ng-class="::{'hidden-card': item.hiddenCard, 'fw-ad-card': item.ad}">
+          <figure class="link item item-image preview">
+            <img width="100%" height="auto" ng-src="{{::item.thumb | thumb:0:0:2 || vm.DEFAULT_THUMB}}"/>
+            <i class="ion ion-ios-search-strong" ng-class="::items.length >= 2 ? 'mini' : ''"></i>
+            <div class="vote-count" ng-if="::contest && item.voteCount" ng-bind="::'+' + item.voteCount"></div>
+            <div class="profile-name" ng-bind="::contest && item.profile.name"></div>
+          </figure>
+        </div>
+        <div ng-if="::!zoom" class="list card fw-card" ng-class="::{'hidden-card': item.hiddenCard, 'fw-ad-card': item.ad}">
+          <a class="link" ui-sref="show-fototeca-photo({programSlug: showSlug, userPictureId: item._id})">
+            <div class="item item-image preview">
+              <img width="100%" height="auto" fw-avatar-fallback ng-src="{{::item.thumb | thumb:0:0:2}}" />
+              <div class="vote-count" ng-if="::contest && item.voteCount" ng-bind="::'+' + item.voteCount"></div>
+              <div class="profile-name" ng-if="::contest" ng-bind="::item.profile.name"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

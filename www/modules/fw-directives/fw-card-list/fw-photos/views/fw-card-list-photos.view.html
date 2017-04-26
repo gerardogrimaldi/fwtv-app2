@@ -1,0 +1,18 @@
+<div>
+  <div class="row content-list" ng-repeat="items in list track by $index">
+    <div class="col" ng-repeat="item in items track by $index">
+      <div fw-dialog-photo="::item" class="list card fw-card" ng-class="::item.hiddenCard">
+        <div class="item item-image preview">
+          <img width="100%" height="auto" ng-src="{{::item.thumb | thumb:0:0:2 || vm.DEFAULT_THUMB}}" />
+          <!--<img width="100%" height="auto" ng-src="{{vm.DEFAULT_THUMB}}" lazy-img="{{::item.thumb | thumb:0:0:2}}" />-->
+        </div>
+        <!-- <div class="item item-content content">
+          <ul ng-if="::!IS_MOBILE && item.categories.length" class="tags-list">
+            <li ng-repeat="category in ::item.categories track by $index" class="tag-item" ng-bind="::category"></li>
+          </ul>
+          <h2 class="title" ng-bind="::item.title"></h2>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

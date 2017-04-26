@@ -1,0 +1,16 @@
+<div class="fw-card-list-shows-container">
+  <div class="row" ng-repeat="items in list track by $index">
+    <div class="col" ng-repeat="item in items track by $index">
+      <div class="list card fw-card" ng-class="{'live-card': item.liveFrameUrl || item.liveId, 'hidden-card': !!item.hiddenCard, 'fw-ad-card': item.ad}">
+        <a ui-sref="show-index({programSlug: item.slug || item.program.slug})" title="{{item.title + (item.slogan ? ' - ' + item.slogan : '')}}" class="link">
+          <div class="item item-image preview">
+            <img width="100%" height="auto" ng-src="{{item.logo || item.image || item.imagePreview || DEFAULT_THUMB}}"/>
+            <!--<img width="100%" height="auto" ng-src="{{DEFAULT_THUMB}}" lazy-img="{{::item.imagePreview}}" />-->
+            <div class="is-live" ng-if="item.liveFrameUrl || item.liveId">{{::item.liveType === 'live' ? 'EN VIVO' : 'ESTRENO'}}</div>
+            <div class="is-new" ng-if="item.isNew">NUEVO</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

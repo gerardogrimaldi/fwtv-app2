@@ -1,0 +1,18 @@
+<ion-view view-title="Home">
+  <ion-content>
+    <h1>Home</h1>
+    <div class="featured-videos-container" ng-if="::vm.featuredVideosList.length">
+      <div class="row">
+        <div class="col">
+          <h1 class="content-title" translate-once="home.featuredVideosLabel"></h1>
+        </div>
+      </div>
+      <fw-card-list-videos list="vm.featuredVideosList"></fw-card-list-videos>
+      <div class="row" ng-if="::IS_MOBILE">
+        <div class="col">
+          <button ng-show="vm.showMoreFeaturedVideos" class="button button-block fw-btn" ng-click="vm.onClickShowMoreFeaturedVideos()" translate-once="btns.showMore"></button>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

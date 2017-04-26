@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('app', ['ionic', 'app.controllers', 'app.services', 'fw-card-list', 'app.filters'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -78,8 +78,24 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         controller: 'CoreCtrl'
       }
     }
+  })
+  .state('app.home',{
+    url:'/home',
+    views: {
+      'menuContent': {
+        templateUrl: 'modules/core/views/home.view.html',
+        controller: 'HomeCtrl as vm',
+       /* resolve: {
+          Home: ['HomeSrv',
+            function(HomeSrv) {
+              return HomeSrv.get();
+            }
+          ]
+        }*/
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/core');
+  $urlRouterProvider.otherwise('/app/home');
 });

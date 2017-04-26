@@ -1,0 +1,11 @@
+<div class="fw-card-list-videos-user-container">
+  <div class="list" ng-class="{'horizontal-list': !!style}" ng-repeat="items in list track by $index">
+    <div class="item item-thumbnail-left" ng-click="onClickVideo(item)" ng-repeat="item in items track by $index">
+      <img width="100%" height="auto" ng-src="{{::item.imagePreview || DEFAULT_THUMB}}"/>
+      <!--img width="100%" height="auto" ng-src="{{DEFAULT_THUMB}}" lazy-img="{{::item.imagePreview}}" /-->
+      <h2 class="title" ng-bind="item.title | cut:35"></h2>
+      <h3 class="profile-name">por <b ng-bind="item.profile.name"></b></h3>
+      <p class="description"><span class="ion" ng-class="::{'ion-ios-heart': IS_IOS, 'ion-android-favorite': !IS_IOS}"></span> <span ng-bind="item.likeCount"></span></p>
+    </div>
+  </div>
+</div>

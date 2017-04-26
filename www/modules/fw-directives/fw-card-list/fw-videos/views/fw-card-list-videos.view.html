@@ -1,0 +1,31 @@
+<div>
+  {{list}}
+
+  <div class="row fw-card-list-container" ng-repeat="items in list track by $index">
+    <div class="col" ng-repeat="item in items track by $index" ng-if="!style">
+      <div class="list card fw-card" ng-class="::{'live-card': item.liveFrameUrl || item.liveId, 'hidden-card': !!item.hiddenCard, 'fw-ad-card': item.ad}">
+        <a class="link" ng-click="vm.onClickVideo(item)">
+          <div class="item item-image preview">
+            <img width="100%" height="auto" ng-src="{{::vm.getThumb(item) || vm.DEFAULT_THUMB}}" />
+            <!--<img width="100%" height="auto" ng-src="{{vm.DEFAULT_THUMB}}" lazy-img="{{::vm.getThumb(item)}}" />-->
+            <div class="is-watched" ng-if="item.isWatched" translate-once="labels.watched"></div>
+          </div>
+          <div class="item item-content">
+            <ul ng-if="::!IS_MOBILE && showTags && item.categories.length" class="tags-list">
+              <li ng-repeat="category in ::item.categories track by $index" class="tag-item" ng-bind="::category"></li>
+            </ul>
+            <h2 class="title" ng-bind="::(item.video.title || item.description || item.title) | cut:(!IS_MOBILE ? 60 : 70)"></h2>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="list horizontal-list" ng-if="style">
+      <a class="item item-thumbnail-left" ng-click="vm.onClickVideo(item)" ng-repeat="item in items track by $index" ng-class="::{'live-card': item.liveFrameUrl || item.liveId, 'hidden-card': !!item.hiddenCard, 'fw-ad-card': item.ad}">
+        <img width="100%" height="auto" ng-src="{{::vm.getThumb(item) || vm.DEFAULT_THUMB}}"/>
+        <!--<img ng-src="{{vm.DEFAULT_THUMB}}" lazy-img="{{::vm.getThumb(item)}}" />-->
+        <h2 class="title" ng-bind="::(item.video.title || item.description || item.title) | cut:240"></h2>
+      </a>
+    </div>
+  </div>
+</div>

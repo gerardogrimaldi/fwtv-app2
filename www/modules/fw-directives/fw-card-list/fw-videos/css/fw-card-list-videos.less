@@ -1,0 +1,74 @@
+.fw-card-list-container {
+  &.row {
+    padding-left: 0;
+    padding-right: 0;
+    .col {
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+  .card {
+    margin-top: 0;
+  }
+  .link {
+    display: block;
+  }
+}
+
+.tablet {
+  .fw-card-list-container.row {
+    padding-left: 5px;
+    padding-right: 5px;
+    .col {
+      &:first-child {
+        padding-left: 5px;
+      }
+      &:last-child {
+        padding-right: 5px;
+      }
+    }
+    &.responsive-sm {
+      .col {
+        width: 100%;
+      }
+    }
+  }
+  .fw-card-list-container .horizontal-list {
+    width: 100%;
+    .item {
+      padding-top: 8px;
+      padding-left: 205px;
+      min-height: 135px;
+      &.hidden-card {
+        display: none;
+      }
+      &.item-thumbnail-left img {
+        max-width: 180px;
+        height: 110px;
+        max-height: 110px;
+      }
+      h2 {
+        white-space: normal;
+      }
+    }
+  }
+}
+
+.platform-android {
+  .fw-card-list-container.row {
+    padding-left: 5px;
+    padding-right: 5px;
+    .col {
+      &:first-child {
+        padding-left: 5px;
+      }
+      &:last-child {
+        padding-right: 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.fw-card-list-videos-user-container {
+  .profile-name,
+  .vote-count {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: #000;
+    padding: 5px 10px;
+    background-color: rgba(252, 204, 18, .65);
+    border-radius: 3px;
+    font-weight: bold;
+  }
+  .profile-name {
+    top: auto;
+    bottom: 5px;
+    background-color: rgba(255, 255, 255, .65);
+  }
+}
+
+.tablet {
+  &.portrait .fw-card-list-videos-user-container .list,
+  .fw-card-list-videos-user-container .horizontal-list {
+    width: 100%;
+    .item {
+      padding-top: 8px;
+      padding-left: 205px;
+      min-height: 135px;
+      &.item-thumbnail-left img {
+        max-width: 180px;
+        height: 110px;
+        max-height: 110px;
+      }
+      h2 {
+        white-space: normal;
+      }
+      .profile-name {
+        position: relative;
+        left: 0;
+        padding-left: 0;
+      }
+    }
+  }
+}

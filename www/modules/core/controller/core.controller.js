@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('app.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -56,4 +56,19 @@ angular.module('starter.controllers', [])
 })
 
 .controller('CoreCtrl', function($scope, $stateParams) {
+})
+
+.controller('HomeCtrl', function($scope, $rootScope, $stateParams, Home, ListGeneratorsSrv) {
+  var vm = this,
+    home = Home.data;
+  vm.home = Home.data;
+
+  function setFeaturedVideoList() {
+    vm.featuredVideosList = getList(home.featuredVideos, 6);
+  }
+  setFeaturedVideoList();
+
+  function getList(items, limit) {
+    return ListGeneratorsSrv.set(items, limit, true);
+  }
 });
