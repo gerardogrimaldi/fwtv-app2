@@ -1,5 +1,4 @@
 <div>
-  {{list}}
   <div class="row fw-card-list-container" ng-repeat="items in list track by $index">
     <div class="col" ng-repeat="item in items track by $index" ng-if="!style">
       <div class="list card fw-card" ng-class="::{'live-card': item.liveFrameUrl || item.liveId, 'hidden-card': !!item.hiddenCard, 'fw-ad-card': item.ad}">

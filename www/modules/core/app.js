@@ -75,7 +75,14 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'fw-card-list
     views: {
       'menuContent': {
         templateUrl: 'modules/core/views/core.html',
-        controller: 'CoreCtrl'
+        controller: 'CoreCtrl as vm',
+        resolve: {
+          Home: ['HomeSrv',
+            function(HomeSrv) {
+              return HomeSrv.get();
+            }
+          ]
+        }
       }
     }
   })

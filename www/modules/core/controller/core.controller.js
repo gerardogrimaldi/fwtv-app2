@@ -55,7 +55,20 @@ angular.module('app.controllers', [])
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
 
-.controller('CoreCtrl', function($scope, $stateParams) {
+.controller('CoreCtrl', function($scope, $stateParams, Home, ListGeneratorsSrv) {
+  var vm = this,
+    home = Home.data;
+  vm.home = Home.data;
+
+  function setFeaturedVideoList() {
+    vm.featuredVideosList = getList(home.featuredVideos, 6);
+  }
+
+  function getList(items, limit) {
+    return ListGeneratorsSrv.set(items, limit, true);
+  }
+
+  setFeaturedVideoList();
 })
 
 .controller('HomeCtrl', function($scope, $rootScope, $stateParams, Home, ListGeneratorsSrv) {
